@@ -1,0 +1,10 @@
+# Ignore the build dir
+build
+
+# Ignore executables
+bin/*
+
+# Ignore tag filesx
+GPATH
+GRTAGS
+GTAGS
