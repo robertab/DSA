@@ -1,6 +1,9 @@
 CXXFLAGS = -g -Wall
 SRCDIR = src
 BUILDDIR = build
+TESTDIR = test
+TEST = bin/tester
+CXXTEST = cxxtestgen --error-printer -o
 
 TARGET = bin/runner
 
@@ -23,7 +26,21 @@ $(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
 
 clean:
 	@echo " Cleaning...";
-	@echo " $(RM) -r $(BUILDDIR) $(TARGET)"; $(RM) -r $(BUILDDIR) $(TARGET)
+	@echo " $(RM) -r $(BUILDDIR) $(TARGET) $(TEST) $(TESTDIR)/tester.cpp"; $(RM) -r $(BUILDDIR) $(TARGET) \
+	$(TEST) $(TESTDIR)/tester.cpp
 
+
+test: tester.cpp $(OBJ)
+	$(CXX) $(CXXFLAGS) -o bin/tester $(INC) test/tester.cpp $(OBJ);
+
+tester.cpp: $(TESTDIR)/*.h $(OBJ)
+	@echo "Creating test runner..."
+	$(CXXTEST) $(TESTDIR)/$@ $(TESTDIR)/*.h	
+
+
+# tester:
+# 	@echo " Creating a test runner"
+
+# 	$(CXX) -o tester $(TESTDIR)/tester.cpp
 
 .PHONY: clean

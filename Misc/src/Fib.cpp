@@ -1,9 +1,5 @@
-#include <cmath>
-#include <iostream>
 #include <vector>
 
-using std::cout;
-using std::endl;
 using std::vector;
 
 const int dynFib(const int n) {
@@ -22,8 +18,3 @@ const int fib(const int n) {
   else return fib(n-1) + fib(n-2);
 }
 
-int main() {
-  cout << dynFib(10) << endl;
-  
-  return 0;
-}
