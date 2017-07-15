@@ -80,14 +80,14 @@ void heapifyDown(Heap *&H, const int i) {
 }
 
 
-int main () {
-  Heap *H = newHeap(15);
-  int array[15] = {1,2,5,10,3,7,11,15,17,20,9,15,8,16, 2};
-  for(int el : array) {
-    insert(H, el);
-  }
-  for(int i=0; i<H->size; i++)
-    cout << H->keys[i] << endl;
+// int main () {
+//   Heap *H = newHeap(15);
+//   int array[15] = {1,2,5,10,3,7,11,15,17,20,9,15,8,16, 2};
+//   for(int el : array) {
+//     insert(H, el);
+//   }
+//   for(int i=0; i<H->size; i++)
+//     cout << H->keys[i] << endl;
 
-  return 0;
-}
+//   return 0;
+// }

@@ -8,6 +8,9 @@ Content: Simple api for the Stack data structure.
          myself comfortable with pointers etc.
 */
 
+#include <stdio.h>
+#include <iostream>
+
 struct Node {
   int val;
   Node *next;

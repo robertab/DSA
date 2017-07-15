@@ -12,22 +12,22 @@ Delete the first element of the list @O(1) and deleting at the end @O(n)
 
 #include <iostream>
 #include <cassert>
-
+#include "LinkedList.h"
 
 using std::cout;
 using std::cin;
 using std::endl;
 
 
-struct Node {
-  int val;
-  Node* next;
-};
+// struct Node {
+//   int val;
+//   struct Node* next;
+// };
 
-// Contains only the pointer to the first node.
-struct LinkedList {
-  Node* first;
-};
+// // Contains only the pointer to the first node.
+// struct LinkedList {
+//   struct Node* first;
+// };
 
 // Insert the new element at the start of the list
 void addElement(LinkedList *&L, const int val) {
