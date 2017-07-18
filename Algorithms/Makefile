@@ -1,17 +1,22 @@
-CXXFLAGS = -g -Wall
+CXXFLAGS = -g -Wall -g3 -pedantic
+
+# Directories
 SRCDIR = src
 BUILDDIR = build
 TESTDIR = test
-TEST = bin/tester
+
+# cxxtestgen
 CXXTEST = cxxtestgen --error-printer -o
 
+# Executables
+TEST = bin/tester
 TARGET = bin/runner
 
+# .cpp files
 SRCEXT = cpp
 SOURCES = $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
 OBJ = $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
 INC = -I include
-
 
 
 $(TARGET): $(OBJ)
@@ -23,7 +28,6 @@ $(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
 	mkdir -p $(BUILDDIR)
 	$(CXX) $(CXXFLAGS) $(INC) -c -o $@ $<
 
-
 clean:
 	@echo " Cleaning...";
 	@echo " $(RM) -r $(BUILDDIR) $(TARGET) $(TEST) $(TESTDIR)/tester.cpp"; $(RM) -r $(BUILDDIR) $(TARGET) \
@@ -33,7 +37,7 @@ clean:
 test: tester.cpp $(OBJ)
 	$(CXX) $(CXXFLAGS) -o bin/tester $(INC) test/tester.cpp $(OBJ);
 
-tester.cpp: $(TESTDIR)/*.h $(OBJ)
+tester.cpp: $(TESTDIR)/*.h 
 	@echo "Creating test runner..."
 	$(CXXTEST) $(TESTDIR)/$@ $(TESTDIR)/*.h	
 
