@@ -1,22 +1,36 @@
 #ifndef LINKEDLIST_H
 #define LINKEDLIST_H
 
-typedef struct Node Node;
-
-typedef struct LinkedList LinkedList;
-
-struct Node {
+class Node {
+  Node *next;
   int val;
-  struct Node* next;
+public:
+  Node(const int &val) {
+    this->val = val;
+    this->next = nullptr;
+  };
+  void addElement(const int &valToBeInserted);
+  void removeElement(const int &valToBeRemoved);
+  const int getVal() const { return this->val; }
+  bool search(const int &valToBeFound);
 };
 
-// Contains only the pointer to the first node.
-struct LinkedList {
-  struct Node* first;
-};
+// typedef struct Node Node;
 
-void addElement(LinkedList *&L, const int val);
-void deleteElement(LinkedList *&L);
-const int head(LinkedList *&L);
+// typedef struct LinkedList LinkedList;
+
+// struct Node {
+//   int val;
+//   struct Node* next;
+// };
+
+// // Contains only the pointer to the first node.
+// struct LinkedList {
+//   struct Node* first;
+// };
+
+// void addElement(LinkedList *&L, const int val);
+// void deleteElement(LinkedList *&L);
+// const int head(LinkedList *&L);
 
 #endif

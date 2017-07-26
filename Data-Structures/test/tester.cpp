@@ -25,25 +25,13 @@ bool suite_MyMiscTestSuit_init = false;
 static MyMiscTestSuit suite_MyMiscTestSuit;
 
 static CxxTest::List Tests_MyMiscTestSuit = { 0, 0 };
-CxxTest::StaticSuiteDescription suiteDescription_MyMiscTestSuit( "test/MyDataStructureTestSuit.h", 6, "MyMiscTestSuit", suite_MyMiscTestSuit, Tests_MyMiscTestSuit );
+CxxTest::StaticSuiteDescription suiteDescription_MyMiscTestSuit( "test/MyDataStructureTestSuit.h", 7, "MyMiscTestSuit", suite_MyMiscTestSuit, Tests_MyMiscTestSuit );
 
-static class TestDescription_suite_MyMiscTestSuit_testAddition : public CxxTest::RealTestDescription {
+static class TestDescription_suite_MyMiscTestSuit_testToExtractMinFromStack : public CxxTest::RealTestDescription {
 public:
- TestDescription_suite_MyMiscTestSuit_testAddition() : CxxTest::RealTestDescription( Tests_MyMiscTestSuit, suiteDescription_MyMiscTestSuit, 21, "testAddition" ) {}
- void runTest() { suite_MyMiscTestSuit.testAddition(); }
-} testDescription_suite_MyMiscTestSuit_testAddition;
-
-static class TestDescription_suite_MyMiscTestSuit_testMultiplication : public CxxTest::RealTestDescription {
-public:
- TestDescription_suite_MyMiscTestSuit_testMultiplication() : CxxTest::RealTestDescription( Tests_MyMiscTestSuit, suiteDescription_MyMiscTestSuit, 25, "testMultiplication" ) {}
- void runTest() { suite_MyMiscTestSuit.testMultiplication(); }
-} testDescription_suite_MyMiscTestSuit_testMultiplication;
-
-static class TestDescription_suite_MyMiscTestSuit_testInsertLinkedList : public CxxTest::RealTestDescription {
-public:
- TestDescription_suite_MyMiscTestSuit_testInsertLinkedList() : CxxTest::RealTestDescription( Tests_MyMiscTestSuit, suiteDescription_MyMiscTestSuit, 28, "testInsertLinkedList" ) {}
- void runTest() { suite_MyMiscTestSuit.testInsertLinkedList(); }
-} testDescription_suite_MyMiscTestSuit_testInsertLinkedList;
+ TestDescription_suite_MyMiscTestSuit_testToExtractMinFromStack() : CxxTest::RealTestDescription( Tests_MyMiscTestSuit, suiteDescription_MyMiscTestSuit, 10, "testToExtractMinFromStack" ) {}
+ void runTest() { suite_MyMiscTestSuit.testToExtractMinFromStack(); }
+} testDescription_suite_MyMiscTestSuit_testToExtractMinFromStack;
 
 #include <cxxtest/Root.cpp>
 const char* CxxTest::RealWorldDescription::_worldName = "cxxtest";

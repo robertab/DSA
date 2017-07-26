@@ -10,31 +10,31 @@ Content: Simple api for the Stack data structure.
 
 #include <stdio.h>
 #include <iostream>
-
-struct Node {
-  int val;
-  Node *next;
-};
-
-struct Stack {
-  Node *top;
-  int size;
-};
+#include "Stack.h"
 
 const int size(Stack *&S) {
   return S->size;
 }
+const int min(Stack *&S) {
+  return S->currMin->val;
+}
 
-void push(Stack *&S, const int val) {
+void push(Stack *&S, const int &val) {
   Node *tmp = new Node;
   tmp->val = val;
   if (S->top == NULL) {
     tmp->next = NULL;
+    S->currMin = tmp;
+    S->prevMin = tmp;
   }
   else {
     tmp->next = S->top;
+    if (val < S->currMin->val) {
+      S->prevMin = S->currMin;
+      S->currMin = tmp;
+    }
   }
-  S->top = tmp;  
+  S->top = tmp;
   S->size++;
 }
 
@@ -46,6 +46,10 @@ const int pop(Stack *&S) {
   else {
     Node *tmp = new Node;
     const int val = S->top->val;
+    // TODO: How to keep a reference to the min element.
+    if(val == S->currMin->val) {
+      S->currMin = S->prevMin;
+    }
     tmp = S->top;
     S->top = S->top->next;
     delete tmp;

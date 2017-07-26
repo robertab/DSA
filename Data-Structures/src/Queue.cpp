@@ -68,4 +68,5 @@ Queue *newQueue() {
   Queue *Q = new Queue;
   Q->head = NULL; Q->tail = NULL;
   Q->size = 0;
+  return Q;
 }
