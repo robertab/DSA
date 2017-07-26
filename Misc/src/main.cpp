@@ -2,16 +2,16 @@
 #include <string>
 #include "weightedScheduele.h"
 #include "editDistance.h"
-
+#include "crackingTheCodeInterview.h"
 
 using namespace std;
-
+#if 0
 int main() {
-  string w1 = "name";
-  string w2 = "mean";
 
-  cout << optimumEditDistance(w1, w2) << endl;
-  
+  char *word = "abcd";
+  //  hasAllUniqueCharRev(word) ? cout << "True\n" : cout << "False\n";
+  reverseString(word);
 
   return 0;
 }
+#endif
