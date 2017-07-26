@@ -25,11 +25,8 @@ class MyMiscTestSuit : public CxxTest::TestSuite
     TS_ASSERT_EQUALS(hasAllUniqueCharRev(w1), true);    
   }
   void testIfReversedString(void) {
-    char *w1 = "a";
-    char *w2 = "abcd";
-    reverseString(w1);
-    reverseString(w2);
-    TS_ASSERT_EQUALS(w1, w1);
-    TS_ASSERT_EQUALS(w2, "dcba");
+    char word[5] = "abcd";
+    reverseString(word);
+    TS_ASSERT_EQUALS(word, "dcba");
   }
 };

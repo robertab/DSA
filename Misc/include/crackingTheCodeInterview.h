@@ -6,7 +6,7 @@
 
 bool hasAllUniqueChar(std::string word);
 bool hasAllUniqueCharRev(std::string word);
-void reverseString(char *word);
+void reverseString(char word[]);
 
 
 #endif

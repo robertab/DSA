@@ -7,7 +7,7 @@
 using std::string;
 using std::cout;
 using std::endl;
-
+using std::swap;
 
 // Checking wether the input string contains all unique characters
 // by using an additional buffer.
@@ -35,19 +35,20 @@ bool hasAllUniqueCharRev(std::string word) {
   return true;
 }
 
-void reverseString(char *word) {
-  char *beg = word;
-  char *end = beg + strlen(word) -1;
-  char tmp;
-  while(beg != end) {
-    tmp = *beg;
-    *beg = *end;
-    *end = tmp;
-
-    beg++;
-    end--;
+void reverseString(char word[]) {
+  char* beg = word-1;
+  char* end = word + strlen(word);
+  while(++beg < --end) {
+    swap(*beg, *end);
   }
-    
+  // int c, i, j;
+  // for(i = 0, j = len - 1; i<j; i++, j--) {
+  //   c = word[i];
+  //   word[i] = word[j];
+  //   word[j] = c;
+  // }
+
+
 }
 
 
