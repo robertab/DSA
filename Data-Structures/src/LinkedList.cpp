@@ -11,13 +11,13 @@ Delete the first element of the list @O(1) and deleting at the end @O(n)
 */
 
 #include <iostream>
-#include <cassert>
 #include "LinkedList.h"
 
 using std::cout;
 using std::cin;
 using std::endl;
 
+// Add a new element at the end of the list O(n)
 void Node::addElement(const int &valToBeInserted) {
   Node *tmp = new Node(valToBeInserted);
   Node *n = this;
@@ -25,6 +25,7 @@ void Node::addElement(const int &valToBeInserted) {
   n->next = tmp;
 }
 
+// Remove the chosen element from the list. Worst case O(n)
 void Node::removeElement(const int &valToBeRemoved) {
   Node *n = this;
   Node *pred = this; 
@@ -41,6 +42,7 @@ void Node::removeElement(const int &valToBeRemoved) {
   }
 }
 
+// Search for the chosen element in the list. O(n)
 bool Node::search(const int &val) {
   Node *n = this;
   while(n) {
@@ -49,8 +51,6 @@ bool Node::search(const int &val) {
   }
   return false;
 }
-
-
 
 // struct Node {
 //   int val;
