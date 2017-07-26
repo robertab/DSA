@@ -57,5 +57,23 @@ public:
  void runTest() { suite_MyMiscTestSuit.testIfReversedString(); }
 } testDescription_suite_MyMiscTestSuit_testIfReversedString;
 
+static class TestDescription_suite_MyMiscTestSuit_testToRemoveDuplicates : public CxxTest::RealTestDescription {
+public:
+ TestDescription_suite_MyMiscTestSuit_testToRemoveDuplicates() : CxxTest::RealTestDescription( Tests_MyMiscTestSuit, suiteDescription_MyMiscTestSuit, 32, "testToRemoveDuplicates" ) {}
+ void runTest() { suite_MyMiscTestSuit.testToRemoveDuplicates(); }
+} testDescription_suite_MyMiscTestSuit_testToRemoveDuplicates;
+
+static class TestDescription_suite_MyMiscTestSuit_testIfAnagram : public CxxTest::RealTestDescription {
+public:
+ TestDescription_suite_MyMiscTestSuit_testIfAnagram() : CxxTest::RealTestDescription( Tests_MyMiscTestSuit, suiteDescription_MyMiscTestSuit, 37, "testIfAnagram" ) {}
+ void runTest() { suite_MyMiscTestSuit.testIfAnagram(); }
+} testDescription_suite_MyMiscTestSuit_testIfAnagram;
+
+static class TestDescription_suite_MyMiscTestSuit_testReplaceWithAnotherChar : public CxxTest::RealTestDescription {
+public:
+ TestDescription_suite_MyMiscTestSuit_testReplaceWithAnotherChar() : CxxTest::RealTestDescription( Tests_MyMiscTestSuit, suiteDescription_MyMiscTestSuit, 43, "testReplaceWithAnotherChar" ) {}
+ void runTest() { suite_MyMiscTestSuit.testReplaceWithAnotherChar(); }
+} testDescription_suite_MyMiscTestSuit_testReplaceWithAnotherChar;
+
 #include <cxxtest/Root.cpp>
 const char* CxxTest::RealWorldDescription::_worldName = "cxxtest";

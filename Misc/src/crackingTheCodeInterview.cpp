@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <algorithm>
 #include <string.h> // memset
 #include "crackingTheCodeInterview.h"
 
@@ -47,11 +48,48 @@ void reverseString(char word[]) {
   //   word[i] = word[j];
   //   word[j] = c;
   // }
-
-
 }
 
+void removeDuplicates(std::string& word) {
+  int len = word.length();
+  int S = 0;
+  for(int i=0; i<len; ++i) {
+    int currentChar = (int)word[i] - 96;
+    if(S & (1 << currentChar)) {
+      word.erase(word.begin()+i);
+      i--; len--; // Hack?
+    }
+    S |= (1 << currentChar);
+  }
+}
 
+bool isAnagram(std::string& word) {
+  std::string reversedWord = word;
+  std::reverse(reversedWord.begin(), reversedWord.end());
+  return word == reversedWord;
+}
 
-
-
+void replaceSpaces(std::string& word) {
+  // Current length of the word
+  int len = word.length();
+  // #spaces and the possibly new length of the word
+  int spaces = 0; int newLen = 0;
+  for(char c : word) { if(c == ' ') spaces++; }
+  newLen = len + spaces*2;
+  word.resize(len + spaces*2);
+  word[newLen] = '\0';
+  //TODO: RESIZE??
+  // Traverse the original word from the end
+  for(int i=len-1; i>=0; i--) {
+    if(word[i] == ' ') {
+      word[newLen - 1] = '0';
+      word[newLen - 2] = '2';
+      word[newLen - 3] = '%';
+      newLen -= 3;
+    }
+    else {
+      word[newLen-1] = word[i];
+      newLen-=1;
+    }
+  }
+}    

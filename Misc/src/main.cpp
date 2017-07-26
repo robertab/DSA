@@ -8,9 +8,11 @@ using namespace std;
 #if 0
 int main() {
 
-  char *word = "abcd";
+  //  char *word = "abcd";
+  string word = "Hej jag heter Robert";
   //  hasAllUniqueCharRev(word) ? cout << "True\n" : cout << "False\n";
-  reverseString(word);
+  //  reverseString(word);
+  replaceSpaces(word);
 
   return 0;
 }
